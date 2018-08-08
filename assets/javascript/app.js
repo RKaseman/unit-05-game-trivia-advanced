@@ -1,5 +1,5 @@
 
-var audio1 = new Audio("../assets/sounds/throwing muses doghouse 2 14.mp3");
+var audio1 = new Audio("../assets/sounds/throwing-muses-doghouse-2-14.mp3");
 
 //  Step 2:
 //  after 5 seconds, execute the fiveSeconds function
