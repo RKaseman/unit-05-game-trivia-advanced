@@ -1,46 +1,41 @@
 
 // image array
-var imageArray = [
-    9,
-    "../assets/images/acc53540f78d0c1803e46d5e0191cf9c--post-punk-punk-art.jpg",
-    // "../assets/images/belly-top-10.jpg",
-    // "../assets/images/cdc1b37b713a50e13a83d2ae6291ef16.jpg",
-    // "../assets/images/Cocteau Twins_header_0.jpg",
-    // "../assets/images/Medicine+1.jpg",
-    // "../assets/images/MI0001332907.jpg",
-    // "../assets/images/MI0004411418.jpg",
-    // "../assets/images/MV5BZ-smaller.jpg",
-    // "../assets/images/Pale-Saints-r01.jpg",
-    // "../assets/images/the-sundays.jpeg",
+var imageArray = [ 1, 2, 3, 4, 5, 6, 7, 8, 9, 
+    "../Trivia-Game/assets/images/acc53540f78d0c1803e46d5e0191cf9c--post-punk-punk-art.jpg",
+    // "../images/belly-top-10.jpg",
+    // "../images/cdc1b37b713a50e13a83d2ae6291ef16.jpg",
+    // "../images/Cocteau Twins_header_0.jpg",
+    // "../images/Medicine+1.jpg",
+    // "../images/MI0001332907.jpg",
+    // "../images/MI0004411418.jpg",
+    // "../images/MV5BZ-smaller.jpg",
+    // "../images/Pale-Saints-r01.jpg",
+    // "../images/the-sundays.jpeg",
     ];
+    console.log(imageArray);
 
-
-
-
-    // var myImage = document.getElementById("mainImage");
-
-    // var imageArray = ["_images/image1.jpg","_images/image2.jpg","_images/image3.jpg",
-    //   "_images/image4.jpg","_images/image5.jpg","_images/image6.jpg"];
-    
-    // var imageIndex = 0; 
-    
-    // function changeImage() {
-    //   myImage.setAttribute("src",imageArray[imageIndex]);
-    //   imageIndex = (imageIndex + 1) % imageArray.length;
-    // }
-
-
-
-
-
-
-
-
+var quiz = {
+    choice1: "Belly",
+    choice2: "Cocteau Twins",
+    choice3: "The Jesus and Mary Chain",
+    choice4: "Lush",
+    choice5: "Mazzy Star",
+    choice6: "Medicine",
+    choice7: "My Bloody Valentine",
+    choice8: "Pale Saints",
+    choice9: "The Sundays",
+    choice10: "Throwing Muses",
+    }
+    console.log(quiz);
 
 // on page load
 window.onload = function() {
+    var randomQuiz = Math.floor(Math.random() * (12 - 1 + 1)) + 1;
+    $("#bandImages").html("<img src='../Trivia-Game/assets/images/acc53540f78d0c1803e46d5e0191cf9c--post-punk-punk-art.jpg'/>", imageArray[9]);
     $("#start").click(clock.start);
-    $("#bandImages").append(imageArray[1]);
+    $("#bx1").text(quiz.choice10);
+    $("#bx2").text(quiz.choice4);
+    $("#bx3").text(quiz.choice2);
 };
 
 //  :01 increment
