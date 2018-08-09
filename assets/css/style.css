@@ -1,0 +1,45 @@
+
+/* global */
+* {
+background: #000000;
+
+text-align: center;
+}
+
+#display {
+font-family: monospace;
+font-size: 120px;
+color: #008000;
+}
+
+header {
+    text-shadow: 2px 2px 2px #218d88;
+}
+
+h1, h2 {
+    color: #9acd32;
+}
+
+#wrapper {
+width: 512px;
+margin: 32px auto;
+}
+
+#start {
+background: #808080;
+width: 256px;
+}
+
+button {
+height: 64px;
+}
+
+#bandImages {
+width: 100%;
+height: 200px;
+margin-top: 20px;
+overflow: auto;
+
+background: #ffffff;
+}
+

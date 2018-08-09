@@ -7,27 +7,44 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Shoegazer Name That Tune</title>
-    <script src="https://code.jquery.com/jquery-3.3.1.min.js"
-    integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
-    crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="crossorigin="anonymous"></script>
     <link rel="stylesheet" type="text/css" href="assets/css/style.css">
     <link href="https://fonts.googleapis.com/css?family=Shojumaru%7cItalianno" rel="stylesheet">
 </head>
 
 <body>
     <header>
-        <h1>Shoegazer<br>Name That Tune</h1>
-        <h2>the most obscure music trivia ever</h2>
+        <h1>
+            <strong>
+                <em>Shoegazer</em>
+            </strong>
+            Name That Tune</h1>
+        <h2>the most obscure music trivia experience ever</h2>
     </header>
-    
-    <div id="timer"></div>
-    <div id="content">
-        <div id="bandImages"></div>
-        <div id="answerList"></div>
+
+    <div id="wrapper">
+        <div>
+            <button id="start">Hold on to your Hat
+                <br>(or cry into it)</button>
+        </div>
+        <div id="display">clock</div>
+        <div id="content">
+            <div id="bandImages"></div>
+            <div id="answerList">
+                <form>
+                    <input type="checkbox" name="answer1" value="choice1">Test1
+                    <br>
+                    <input type="checkbox" name="answer2" value="choice2">Test2
+                    <br>
+                    <input type="checkbox" name="answer3" value="choice3">Test3
+                    <br>
+                </form>
+            </div>
+        </div>
     </div>
 
     <script src="assets/javascript/app.js"></script>
 
 </body>
-</html>
 
+</html>
