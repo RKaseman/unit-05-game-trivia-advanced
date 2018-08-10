@@ -17,6 +17,7 @@ var imageArray = [
 window.onload = function() {
     $("#bandImages").html("<img src='" + imageArray[0] + "'/>");
     $("#beginQuestions").on("click", clock.start);
+    $("#bandImages").html("<img src='" + imageArray[1] + "'/>");
 };
 
 var intervalId;
@@ -27,9 +28,10 @@ var ask = {
     new: function() {
         if (ask.index < quiz.length) {
             $("#bandImages").text(quiz[this.index].nameThatBand);
+            // console.log("quiz[this.index].nameThatBand = " + quiz[this.index].nameThatBand);
             $("#header").text("");
             for (const choice of quiz[ask.index].displayArray) {
-                $("#guesses").append("<li numberIndex= " + quiz[this.index].displayArray.indexOf(choice) + ">" + choice);
+                $("#guesses").append("<li id='clickRegion' numberIndex= " + quiz[this.index].displayArray.indexOf(choice) + ">" + choice);
             }
         }
         else {return;}
@@ -47,14 +49,14 @@ var guesses = {
     },
     minusScore: function() {
         guesses.wrong++;
-        $(".wrongAnswer").text(guesses.wrong);             
+        $("#wrongAnswer").text(guesses.wrong);             
         ask.index++;
         ask.new();
     },
 };
 
 var clock = {
-    time: 5,
+    time: 30,
 
     start: function() {
         if (!timerOn) {
@@ -86,14 +88,15 @@ var clock = {
         }
         return minutes + ":" + seconds;
     },
-    sceneSwitch: function() {
+    // sceneSwitch: function() {
 
-    }
+    // }
 };
 
-$(document).on("click", function() {
-    if( ask.index >= quiz.length ) {return;}
-    var displayArrayPicked = Number($(this).attr("numberindex"));
+$("#guesses").on("click", "#clickRegion", function() {
+    if (ask.index >= quiz.length) {return;}
+    var displayArrayPicked = Number($(this).attr("numberIndex"));
+    console.log("displayArrayPicked = " + displayArrayPicked);
     if (displayArrayPicked === quiz[ask.index].theAnswer) {
         guesses.plusScore();
     } else {
@@ -102,33 +105,38 @@ $(document).on("click", function() {
 });
 
 $("#guesses").on("click", function() {
+    // var imageSwitch;
+    // for (var i = 2; i < imageArray.length; i++) {
+        // $("#bandImages").html("<img src='" + imageArray[i++] + "'/>");
+
+    // }
     ask.new()
 });
 
 var quiz = [{
-    nameThatBand: "test",
+    nameThatBand: "displayArray test1",
     displayArray: ["The Jesus and Mary Chain", "My Bloody Valentine", "Lush"],
+    theAnswer: 1
+    },
+    {
+    nameThatBand: "displayArray test2",
+    displayArray: ["Belly", "Medicine", "Cocteau Twins"],
+    theAnswer: 2
+    },
+    {
+    nameThatBand: "displayArray test3",
+    displayArray: ["Mazzy Star", "The Sundays", "Pale Saints"],
     theAnswer: 3
     },
     {
-    nameThatBand: "test2",
-    displayArray: ["Belly", "Medicine", "Cocteau Twins"],
-    theAnswer: 0
-    },
-    {
-    nameThatBand: "test3",
-    displayArray: ["Mazzy Star", "The Sundays", "Pale Saints"],
-    theAnswer: 0
-    },
-    {
-    nameThatBand: "test4",
+    nameThatBand: "displayArray test4",
     displayArray: ["Throwing Muses", "Lush", "Pale Saints"],
-    theAnswer: 0
+    theAnswer: 4
     },
     {
-    nameThatBand: "test5",
+    nameThatBand: "displayArray test5",
     displayArray: ["Lush", "Medicine", "Belly"],
-    theAnswer: 0
+    theAnswer: 5
     }
 ];
 

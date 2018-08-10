@@ -1,20 +1,14 @@
 # Trivia-Game
 
-Shoegazer trivia
+I run out of time on the Thursday homework.
 
-create and start timer
+I disabled audio that should play for as long as the timer runs.
 
-bands:
- 1. throwing muses
- 2. medicine
- 3. jesus and mary chain
- 4. lush
- 5. cocteau twins
- 6. mazzy star
- 7. belly
- 8. pale saints
- 9. the sundays
-10. my bloody valentine
+I have to figure out:
+- how to change the images between option sets.
+<!-- - why the first set of options doesn't show up. -->
+<!-- - how to generate a single set of options and wipe out the old choices. -->
+<!-- - how to advance the index of choices to the next set. -->
+- answer right/wrong recognition.
 
-images for all
-
+- had the answer sets partially working, but I broke them again.
