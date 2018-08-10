@@ -8,7 +8,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Shoegazer Name That Tune</title>
     <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="crossorigin="anonymous"></script>
-    <!-- <link rel="stylesheet" type="text/css" href="assets/css/style.css"> -->
+    <link rel="stylesheet" type="text/css" href="assets/css/style.css">
     <link href="https://fonts.googleapis.com/css?family=Shojumaru%7cItalianno" rel="stylesheet">
 </head>
 
@@ -28,19 +28,16 @@
                 <source src="../Trivia-Game/assets/sounds/throwing-muses-doghouse-2-14.mp3" type="audio/mpeg">
                 Your browser does not support the audio element.
             </audio>
-            <button id="start" onclick="playAudio()" type="button">Hold on to your Hat
+            <button id="beginQuestions" onclick="playAudio()" type="button">Hold on to your Hat
                 <br>(or cry into it)</button>
         </div>
-        <div id="display">clock</div>
+        <div id="clockDisplay">clock</div>
+        <div id="rightAnswer">rightAnswer</div>
+        <div id="wrongAnswer">wrongAnswer</div>
         <div id="bandImages"></div>
-        <form id="answerList">
-            <input type="checkbox" name="answer1" value="choice1"><p id="bx1"></p>
-            <br>
-            <input type="checkbox" name="answer2" value="choice2"><p id="bx2"></p>
-            <br>
-            <input type="checkbox" name="answer3" value="choice3"><p id="bx3"></p>
-            <br>
-        </form>
+        <div id="header">header</div>
+        <div id="guesses"><ul></ul></div>
+        
     </div>
 
     <script>
@@ -58,3 +55,4 @@
 </body>
 
 </html>
+

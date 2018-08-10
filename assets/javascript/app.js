@@ -1,71 +1,75 @@
 
 // image array
-var imageArray = [ 1, 2, 3, 4, 5, 6, 7, 8, 9, 
-    "../Trivia-Game/assets/images/acc53540f78d0c1803e46d5e0191cf9c--post-punk-punk-art.jpg",
-    // "../images/belly-top-10.jpg",
-    // "../images/cdc1b37b713a50e13a83d2ae6291ef16.jpg",
-    // "../images/Cocteau Twins_header_0.jpg",
-    // "../images/Medicine+1.jpg",
-    // "../images/MI0001332907.jpg",
-    // "../images/MI0004411418.jpg",
-    // "../images/MV5BZ-smaller.jpg",
-    // "../images/Pale-Saints-r01.jpg",
-    // "../images/the-sundays.jpeg",
+var imageArray = [ 
+    "../Trivia-Game/assets/images/question-mark-sm.png",
+    "../Trivia-Game/assets/images/acc53540f78.jpg",
+    "../Trivia-Game/assets/images/belly-top-10.jpg",
+    "../Trivia-Game/assets/images/cdc1b37b713a50e13a83d2ae6291ef16.jpg",
+    "../Trivia-Game/assets/images/Cocteau Twins_header_0.jpg",
+    "../Trivia-Game/assets/images/Medicine+1.jpg",
+    "../Trivia-Game/assets/images/MI0001332907.jpg",
+    "../Trivia-Game/assets/images/MI0004411418.jpg",
+    "../Trivia-Game/assets/images/MV5BZ-smaller.jpg",
+    "../Trivia-Game/assets/images/Pale-Saints-r01.jpg",
+    "../Trivia-Game/assets/images/the-sundays.jpeg",
     ];
-    console.log(imageArray);
 
-var quiz = {
-    choice1: "Belly",
-    choice2: "Cocteau Twins",
-    choice3: "The Jesus and Mary Chain",
-    choice4: "Lush",
-    choice5: "Mazzy Star",
-    choice6: "Medicine",
-    choice7: "My Bloody Valentine",
-    choice8: "Pale Saints",
-    choice9: "The Sundays",
-    choice10: "Throwing Muses",
-    }
-    console.log(quiz);
-
-// on page load
 window.onload = function() {
-    var randomQuiz = Math.floor(Math.random() * (12 - 1 + 1)) + 1;
-    $("#bandImages").html("<img src='../Trivia-Game/assets/images/acc53540f78d0c1803e46d5e0191cf9c--post-punk-punk-art.jpg'/>", imageArray[9]);
-    $("#start").click(clock.start);
-    $("#bx1").text(quiz.choice10);
-    $("#bx2").text(quiz.choice4);
-    $("#bx3").text(quiz.choice2);
+    $("#bandImages").html("<img src='" + imageArray[0] + "'/>");
+    $("#beginQuestions").on("click", clock.start);
 };
 
-//  :01 increment
 var intervalId;
-// clock pace bug prevention
-var clockRunning = false;
-// clock object
+var timerOn = false;
+
+var ask = {
+    index: 0,
+    new: function() {
+        if (ask.index < quiz.length) {
+            $("#bandImages").text(quiz[this.index].nameThatBand);
+            $("#header").text("");
+            for (const choice of quiz[ask.index].displayArray) {
+                $("#guesses").append("<li numberIndex= " + quiz[this.index].displayArray.indexOf(choice) + ">" + choice);
+            }
+        }
+        else {return;}
+    }
+};
+
+var guesses = {
+    correct: 0,
+    wrong: 0,
+    plusScore: function() {
+        guesses.correct++;
+        $("#rightAnswer").text(guesses.correct);
+        ask.index++;
+        ask.new();
+    },
+    minusScore: function() {
+        guesses.wrong++;
+        $(".wrongAnswer").text(guesses.wrong);             
+        ask.index++;
+        ask.new();
+    },
+};
+
 var clock = {
     time: 5,
-    reset: function() {
-        clock.time = 5;
-        $("#display").text("00:00" + "t");
-    },
+
     start: function() {
-        // start game
-        if (!clockRunning) {
+        if (!timerOn) {
             intervalId = setInterval(clock.count, 1000);
-            clockRunning = true;
+            timerOn = true;
         }
     },
     count: function() {
         clock.time--;
-        // var converted = current time passed into the clock.timeConverter function
         var converted = clock.timeConverter(clock.time);
-        // <div>: display converted
-        $("#display").text(converted);
+        $("#clockDisplay").text(converted);
         if (clock.time === 0) {
             clearInterval(intervalId);
-            clockRunning = false;
-            $("#display").text("tbd");
+            timerOn = false;
+            $("#clockDisplay").text("tbd");
         }
     },
     timeConverter: function(t) {
@@ -86,4 +90,45 @@ var clock = {
 
     }
 };
+
+$(document).on("click", function() {
+    if( ask.index >= quiz.length ) {return;}
+    var displayArrayPicked = Number($(this).attr("numberindex"));
+    if (displayArrayPicked === quiz[ask.index].theAnswer) {
+        guesses.plusScore();
+    } else {
+        guesses.minusScore();
+    }
+});
+
+$("#guesses").on("click", function() {
+    ask.new()
+});
+
+var quiz = [{
+    nameThatBand: "test",
+    displayArray: ["The Jesus and Mary Chain", "My Bloody Valentine", "Lush"],
+    theAnswer: 3
+    },
+    {
+    nameThatBand: "test2",
+    displayArray: ["Belly", "Medicine", "Cocteau Twins"],
+    theAnswer: 0
+    },
+    {
+    nameThatBand: "test3",
+    displayArray: ["Mazzy Star", "The Sundays", "Pale Saints"],
+    theAnswer: 0
+    },
+    {
+    nameThatBand: "test4",
+    displayArray: ["Throwing Muses", "Lush", "Pale Saints"],
+    theAnswer: 0
+    },
+    {
+    nameThatBand: "test5",
+    displayArray: ["Lush", "Medicine", "Belly"],
+    theAnswer: 0
+    }
+];
 
