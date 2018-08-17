@@ -14,10 +14,42 @@ var imageArray = [
     "../Trivia-Game/assets/images/the-sundays.jpeg",
     ];
 
+var quiz = [{
+    nameThatBand: "displayArray test1",
+    displayArray: ["The Jesus and Mary Chain", "My Bloody Valentine", "Lush"],
+    theAnswer: 1
+    },
+    {
+    nameThatBand: "displayArray test2",
+    displayArray: ["Belly", "Medicine", "Cocteau Twins"],
+    theAnswer: 2
+    },
+    {
+    nameThatBand: "displayArray test3",
+    displayArray: ["Mazzy Star", "The Sundays", "Pale Saints"],
+    theAnswer: 3
+    },
+    {
+    nameThatBand: "displayArray test4",
+    displayArray: ["Throwing Muses", "Lush", "Pale Saints"],
+    theAnswer: 4
+    },
+    {
+    nameThatBand: "displayArray test5",
+    displayArray: ["Lush", "Medicine", "Belly"],
+    theAnswer: 5
+    }
+];
+
+console.log(quiz)
+
 window.onload = function() {
     $("#bandImages").html("<img src='" + imageArray[0] + "'/>");
+
+    $("#beginQuestions").on("click", function () {
     $("#beginQuestions").on("click", clock.start);
     $("#bandImages").html("<img src='" + imageArray[1] + "'/>");
+    });
 };
 
 var intervalId;
@@ -30,7 +62,7 @@ var ask = {
             $("#bandImages").text(quiz[this.index].nameThatBand);
             // console.log("quiz[this.index].nameThatBand = " + quiz[this.index].nameThatBand);
             $("#header").text("");
-            for (const choice of quiz[ask.index].displayArray) {
+            for (var choice of quiz[ask.index].displayArray) {
                 $("#guesses").append("<li id='clickRegion' numberIndex= " + quiz[this.index].displayArray.indexOf(choice) + ">" + choice);
             }
         }
@@ -112,31 +144,4 @@ $("#guesses").on("click", function() {
     // }
     ask.new()
 });
-
-var quiz = [{
-    nameThatBand: "displayArray test1",
-    displayArray: ["The Jesus and Mary Chain", "My Bloody Valentine", "Lush"],
-    theAnswer: 1
-    },
-    {
-    nameThatBand: "displayArray test2",
-    displayArray: ["Belly", "Medicine", "Cocteau Twins"],
-    theAnswer: 2
-    },
-    {
-    nameThatBand: "displayArray test3",
-    displayArray: ["Mazzy Star", "The Sundays", "Pale Saints"],
-    theAnswer: 3
-    },
-    {
-    nameThatBand: "displayArray test4",
-    displayArray: ["Throwing Muses", "Lush", "Pale Saints"],
-    theAnswer: 4
-    },
-    {
-    nameThatBand: "displayArray test5",
-    displayArray: ["Lush", "Medicine", "Belly"],
-    theAnswer: 5
-    }
-];
 
