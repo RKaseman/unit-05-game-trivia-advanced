@@ -14,6 +14,7 @@ var imageArray = [
     "../Trivia-Game/assets/images/the-sundays.jpeg",
     ];
 
+// quiz Array
 var quiz = [{
     nameThatBand: "displayArray test1",
     displayArray: ["The Jesus and Mary Chain", "My Bloody Valentine", "Lush"],
@@ -41,15 +42,26 @@ var quiz = [{
     }
 ];
 
-console.log(quiz)
+console.log(quiz);
+console.log(quiz[0].displayArray);
+console.log(quiz[0].theAnswer);
+console.log(quiz[1].displayArray);
+console.log(quiz[1].theAnswer);
+console.log(quiz[2].displayArray);
+console.log(quiz[2].theAnswer);
+console.log(quiz[3].displayArray);
+console.log(quiz[3].theAnswer);
+console.log(quiz[4].displayArray);
+console.log(quiz[4].theAnswer);
 
 window.onload = function() {
-    $("#bandImages").html("<img src='" + imageArray[0] + "'/>");
-
-    $("#beginQuestions").on("click", function () {
     $("#beginQuestions").on("click", clock.start);
-    $("#bandImages").html("<img src='" + imageArray[1] + "'/>");
-    });
+    $("#bandImages").html("<img src='" + imageArray[0] + "'/>");
+    setDisplay();
+};
+
+var setDisplay = function() {
+    $("ul").append("<li>" + quiz[0].displayArray + "</li>");
 };
 
 var intervalId;
@@ -60,7 +72,7 @@ var ask = {
     new: function() {
         if (ask.index < quiz.length) {
             $("#bandImages").text(quiz[this.index].nameThatBand);
-            // console.log("quiz[this.index].nameThatBand = " + quiz[this.index].nameThatBand);
+            console.log("quiz[this.index].nameThatBand = " + quiz[this.index].nameThatBand);
             $("#header").text("");
             for (var choice of quiz[ask.index].displayArray) {
                 $("#guesses").append("<li id='clickRegion' numberIndex= " + quiz[this.index].displayArray.indexOf(choice) + ">" + choice);
@@ -87,44 +99,6 @@ var guesses = {
     },
 };
 
-var clock = {
-    time: 30,
-
-    start: function() {
-        if (!timerOn) {
-            intervalId = setInterval(clock.count, 1000);
-            timerOn = true;
-        }
-    },
-    count: function() {
-        clock.time--;
-        var converted = clock.timeConverter(clock.time);
-        $("#clockDisplay").text(converted);
-        if (clock.time === 0) {
-            clearInterval(intervalId);
-            timerOn = false;
-            $("#clockDisplay").text("tbd");
-        }
-    },
-    timeConverter: function(t) {
-        var minutes = Math.floor(t / 60);
-        var seconds = t - (minutes * 60);
-        if (seconds < 10) {
-            seconds = "0" + seconds;
-        }
-        if (minutes === 0) {
-            minutes = "00";
-        }
-        else if (minutes < 10) {
-            minutes = "0" + minutes;
-        }
-        return minutes + ":" + seconds;
-    },
-    // sceneSwitch: function() {
-
-    // }
-};
-
 $("#guesses").on("click", "#clickRegion", function() {
     if (ask.index >= quiz.length) {return;}
     var displayArrayPicked = Number($(this).attr("numberIndex"));
@@ -144,4 +118,44 @@ $("#guesses").on("click", function() {
     // }
     ask.new()
 });
+
+// timer
+var clock = {
+
+    time: 30,
+
+    start: function() {
+        if (!timerOn) {
+            intervalId = setInterval(clock.count, 1000);
+            timerOn = true;
+        }
+    },
+
+    count: function() {
+        clock.time--;
+        var converted = clock.timeConverter(clock.time);
+        $("#clockDisplay").text(converted);
+        if (clock.time === 0) {
+            clearInterval(intervalId);
+            timerOn = false;
+            $("#clockDisplay").text("tbd");
+        }
+    },
+
+    timeConverter: function(t) {
+        var minutes = Math.floor(t / 60);
+        var seconds = t - (minutes * 60);
+        if (seconds < 10) {
+            seconds = "0" + seconds;
+        }
+        if (minutes === 0) {
+            minutes = "00";
+        }
+        else if (minutes < 10) {
+            minutes = "0" + minutes;
+        }
+        return minutes + ":" + seconds;
+    }
+
+}; // end timer
 
