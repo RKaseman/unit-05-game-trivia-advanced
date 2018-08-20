@@ -1,6 +1,6 @@
 
 // image array
-var imageArray = [ 
+var images = [ 
     "../Trivia-Game/assets/images/question-mark-sm.png",
     "../Trivia-Game/assets/images/acc53540f78.jpg",
     "../Trivia-Game/assets/images/belly-top-10.jpg",
@@ -68,40 +68,18 @@ var quiz = [{
 
 ];
 
-console.log(quiz);
-console.log(quiz[0].displayArray);
-console.log(quiz[0].theAnswer);
-console.log(quiz[1].displayArray);
-console.log(quiz[1].theAnswer);
-console.log(quiz[2].displayArray);
-console.log(quiz[2].theAnswer);
-console.log(quiz[3].displayArray);
-console.log(quiz[3].theAnswer);
-console.log(quiz[4].displayArray);
-console.log(quiz[4].theAnswer);
-console.log(quiz[5].displayArray);
-console.log(quiz[5].theAnswer);
-console.log(quiz[6].displayArray);
-console.log(quiz[6].theAnswer);
-console.log(quiz[7].displayArray);
-console.log(quiz[7].theAnswer);
-console.log(quiz[8].displayArray);
-console.log(quiz[8].theAnswer);
-console.log(quiz[9].displayArray);
-console.log(quiz[9].theAnswer);
+var intervalId;
+var timerOn = false;
 
 window.onload = function() {
-    $("#beginQuestions").on("click", clock.start);
-    $("#bandImages").html("<img src='" + imageArray[0] + "'/>");
     setDisplay();
 };
 
 var setDisplay = function() {
-    $("ul").append("<li>" + quiz[0].displayArray + "</li>");
+    $("#beginQuestions").on("click", clock.start);
+    $("#bandImages").html("<img src='" + images[0] + "'/>");
+    $("ul").append("<li>" + quiz[0].displayArray[0] + "</li><li>" + quiz[0].displayArray[1] + "</li><li>" + quiz[0].displayArray[2] + "</li>");
 };
-
-var intervalId;
-var timerOn = false;
 
 var ask = {
     index: 0,
@@ -148,8 +126,8 @@ $("#guesses").on("click", "#clickRegion", function() {
 
 $("#guesses").on("click", function() {
     // var imageSwitch;
-    // for (var i = 2; i < imageArray.length; i++) {
-        // $("#bandImages").html("<img src='" + imageArray[i++] + "'/>");
+    // for (var i = 2; i < images.length; i++) {
+        // $("#bandImages").html("<img src='" + images[i++] + "'/>");
 
     // }
     ask.new()
