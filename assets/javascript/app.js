@@ -16,30 +16,56 @@ var imageArray = [
 
 // quiz Array
 var quiz = [{
-    nameThatBand: "displayArray test1",
-    displayArray: ["The Jesus and Mary Chain", "My Bloody Valentine", "Lush"],
-    theAnswer: 1
+        nameThatBand: "displayArray test1",
+        displayArray: ["The Jesus and Mary Chain", "My Bloody Valentine", "Lush"],
+        theAnswer: 2
     },
     {
-    nameThatBand: "displayArray test2",
-    displayArray: ["Belly", "Medicine", "Cocteau Twins"],
-    theAnswer: 2
+        nameThatBand: "displayArray test2",
+        displayArray: ["Belly", "Medicine", "Cocteau Twins"],
+        theAnswer: 1
     },
     {
-    nameThatBand: "displayArray test3",
-    displayArray: ["Mazzy Star", "The Sundays", "Pale Saints"],
-    theAnswer: 3
+        nameThatBand: "displayArray test3",
+        displayArray: ["Mazzy Star", "The Sundays", "Lush"],
+        theAnswer: 3
     },
     {
-    nameThatBand: "displayArray test4",
-    displayArray: ["Throwing Muses", "Lush", "Pale Saints"],
-    theAnswer: 4
+        nameThatBand: "displayArray test4",
+        displayArray: ["Throwing Muses", "Cocteau Twins", "Pale Saints"],
+        theAnswer: 2
     },
     {
-    nameThatBand: "displayArray test5",
-    displayArray: ["Lush", "Medicine", "Belly"],
-    theAnswer: 5
+        nameThatBand: "displayArray test5",
+        displayArray: ["Lush", "Medicine", "Belly"],
+        theAnswer: 2
+    },
+    {
+        nameThatBand: "displayArray test6",
+        displayArray: ["Throwing Muses", "Medicine", "Belly"],
+        theAnswer: 1
+    },
+    {
+        nameThatBand: "displayArray test7",
+        displayArray: ["Throwing Muses", "Medicine", "Mazzy Star"],
+        theAnswer: 3
+    },
+    {
+        nameThatBand: "displayArray test8",
+        displayArray: ["Throwing Muses", "The Jesus and Mary Chain", "Mazzy Star"],
+        theAnswer: 2
+    },
+    {
+        nameThatBand: "displayArray test9",
+        displayArray: ["Pale Saints", "The Jesus and Mary Chain", "Mazzy Star"],
+        theAnswer: 1
+    },
+    {
+        nameThatBand: "displayArray test10",
+        displayArray: ["Throwing Muses", "The Sundays", "Mazzy Star"],
+        theAnswer: 2
     }
+
 ];
 
 console.log(quiz);
@@ -53,6 +79,16 @@ console.log(quiz[3].displayArray);
 console.log(quiz[3].theAnswer);
 console.log(quiz[4].displayArray);
 console.log(quiz[4].theAnswer);
+console.log(quiz[5].displayArray);
+console.log(quiz[5].theAnswer);
+console.log(quiz[6].displayArray);
+console.log(quiz[6].theAnswer);
+console.log(quiz[7].displayArray);
+console.log(quiz[7].theAnswer);
+console.log(quiz[8].displayArray);
+console.log(quiz[8].theAnswer);
+console.log(quiz[9].displayArray);
+console.log(quiz[9].theAnswer);
 
 window.onload = function() {
     $("#beginQuestions").on("click", clock.start);
