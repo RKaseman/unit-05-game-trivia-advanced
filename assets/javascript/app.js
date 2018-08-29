@@ -84,20 +84,12 @@ function ask() {
     if (quizCounter < quiz.length) {
         quizCounter++;
         $("#bandImages").html("<img src='" + images[quizCounter] + "'/>");
-        $("#guesses").html("<li class='clickRegion' numberIndex='1'>" + quiz[quizCounter].displayArray[0] + "</li><li class='clickRegion' numberIndex='2'>" + quiz[quizCounter].displayArray[0]);
-
-
-        // for (j = 1; j < quiz.length; j++) {
-
-    // $("#bandImages").text(quiz[this.index]);
-    // console.log("quiz[this.index] = " + quiz[this.index]);
-    // for (var choice of quiz[ask.index].displayArray) {
-    // }
-        // }
+        $("ul").html("<li class='clickRegion' numberIndex='1'>" + quiz[quizCounter].displayArray[0] + "</li><li class='clickRegion' numberIndex='2'>" + quiz[quizCounter].displayArray[1] + "</li><li class='clickRegion' numberIndex='3'>" + quiz[quizCounter].displayArray[2] + "</li>");
     } else {
         return;
     }
 };
+
 
 var guesses = {
     correct: 0,
@@ -105,27 +97,27 @@ var guesses = {
     plusScore: function() {
         guesses.correct++;
         $("#rightAnswer").text(guesses.correct);
-        ask.index++;
-        ask.new();
+        quizCounter++;
+        ask();
     },
     minusScore: function() {
         guesses.wrong++;
         $("#wrongAnswer").text(guesses.wrong);             
-        ask.index++;
-        ask.new();
+        quizCounter++;
+        ask();
     },
 };
 
-$("#guesses").on("click", "#clickRegion", function() {
+$("#guesses").on("click", ".clickRegion", function() {
     if (ask.index >= quiz.length) {return;}
     var displayArrayPicked = Number($(this).attr("numberIndex"));
     console.log("displayArrayPicked = " + displayArrayPicked);
-    if (displayArrayPicked === quiz[ask.index].theAnswer) {
+    if (displayArrayPicked === quiz[quizCounter].theAnswer) {
         guesses.plusScore();
     } else {
         guesses.minusScore();
     }
-    ask.new()
+    ask();
 });
 
 // $("#guesses").on("click", function() {
