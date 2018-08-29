@@ -1,25 +1,37 @@
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en-us">
 
 <head>
+
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Shoegazer Name That Tune</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Shoegazer Name. That. Band.</title>
+
+    <!-- jquery -->
     <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="crossorigin="anonymous"></script>
-    <link rel="stylesheet" type="text/css" href="assets/css/style.css">
+
+    <link rel="stylesheet" type="text/css" href="./assets/css/EMreset.css">
+
     <link href="https://fonts.googleapis.com/css?family=Shojumaru%7cItalianno" rel="stylesheet">
+
+    <link rel="stylesheet" type="text/css" href="./assets/css/style.css">
+
 </head>
 
 <body>
     <header>
         <h1>
-            <strong>
-                <em>Shoegazer</em>
-            </strong>
-            Name. That. Band.</h1>
-        <h2>the most obscure music trivia experience ever</h2>
+            Shoegazer
+        </h1>
+        <h2>
+            Name. That. Band.
+        </h2>
+        <h3>
+            the most obscure music trivia experience ever
+        </h3>
     </header>
 
     <div id="wrapper">
@@ -28,8 +40,9 @@
                 <source src="../Trivia-Game/assets/sounds/throwing-muses-doghouse-2-14.mp3" type="audio/mpeg">
                 Your browser does not support the audio element.
             </audio>
-            <button id="beginQuestions" onclick="playAudio()" type="button">Hold on to your Hat
-                <br>(or cry into it)</button>
+            <button id="beginQuestions" onclick="playAudio()" type="button">
+                Click Here And Hold On To Your Hat ...
+                <br>or cry into it ... because shoegazers have a bad wrap that way</button>
         </div>
         <div id="clockDisplay">clock</div>
         <div id="rightAnswer">0</div>
@@ -37,7 +50,6 @@
         <div id="bandImages"></div>
         <div id="header"></div>
         <div id="guesses"><ul></ul></div>
-
     </div>
 
     <script>

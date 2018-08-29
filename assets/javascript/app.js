@@ -1,4 +1,6 @@
 
+$(document).ready(function () {
+
 // image array
 var images = [ 
     "../Trivia-Game/assets/images/question-mark-sm.png",
@@ -15,84 +17,86 @@ var images = [
     ];
 
 // quiz Array
-var quiz = [{
-        nameThatBand: "displayArray test1",
+var quiz = [
+    {
+        displayArray: ["Name", "That", "Band"]
+    },
+    {
         displayArray: ["The Jesus and Mary Chain", "My Bloody Valentine", "Lush"],
         theAnswer: 2
     },
     {
-        nameThatBand: "displayArray test2",
         displayArray: ["Belly", "Medicine", "Cocteau Twins"],
         theAnswer: 1
     },
     {
-        nameThatBand: "displayArray test3",
         displayArray: ["Mazzy Star", "The Sundays", "Lush"],
         theAnswer: 3
     },
     {
-        nameThatBand: "displayArray test4",
         displayArray: ["Throwing Muses", "Cocteau Twins", "Pale Saints"],
         theAnswer: 2
     },
     {
-        nameThatBand: "displayArray test5",
         displayArray: ["Lush", "Medicine", "Belly"],
         theAnswer: 2
     },
     {
-        nameThatBand: "displayArray test6",
         displayArray: ["Throwing Muses", "Medicine", "Belly"],
         theAnswer: 1
     },
     {
-        nameThatBand: "displayArray test7",
         displayArray: ["Throwing Muses", "Medicine", "Mazzy Star"],
         theAnswer: 3
     },
     {
-        nameThatBand: "displayArray test8",
         displayArray: ["Throwing Muses", "The Jesus and Mary Chain", "Mazzy Star"],
         theAnswer: 2
     },
     {
-        nameThatBand: "displayArray test9",
         displayArray: ["Pale Saints", "The Jesus and Mary Chain", "Mazzy Star"],
         theAnswer: 1
     },
     {
-        nameThatBand: "displayArray test10",
         displayArray: ["Throwing Muses", "The Sundays", "Mazzy Star"],
         theAnswer: 2
-    }
+    }];
+    console.log(quiz[0].displayArray);
 
-];
 
 var intervalId;
 var timerOn = false;
+var quizCounter = 0;
 
-window.onload = function() {
-    setDisplay();
-};
 
-var setDisplay = function() {
-    $("#beginQuestions").on("click", clock.start);
-    $("#bandImages").html("<img src='" + images[0] + "'/>");
-    $("ul").append("<li>" + quiz[0].displayArray[0] + "</li><li>" + quiz[0].displayArray[1] + "</li><li>" + quiz[0].displayArray[2] + "</li>");
-};
+$("#bandImages").html("<img src='" + images[0] + "'/>");
 
-var ask = {
-    index: 0,
-    new: function() {
-        if (ask.index < quiz.length) {
-            $("#bandImages").text(quiz[this.index].nameThatBand);
-            console.log("quiz[this.index].nameThatBand = " + quiz[this.index].nameThatBand);
-            $("#header").text("");
-            for (var choice of quiz[ask.index].displayArray) {
-                $("#guesses").append("<li id='clickRegion' numberIndex= " + quiz[this.index].displayArray.indexOf(choice) + ">" + choice);
-            }
+$("ul").append("<li>" + quiz[0].displayArray[0] + "</li><li>" + quiz[0].displayArray[1] + "</li><li>" + quiz[0].displayArray[2] + "</li>");
+
+$("#beginQuestions").on("click", function () {
+    clock.start();
+    ask();
+});
+
+
+function ask() {
+
+    if (quizCounter < quiz.length) {
+
+        for (i = 1; i < images.length; i++) {
+            $("#bandImages").html("<img src='" + images[0 + 1] + "'/>");
+        };
+
+        for (j = 1; j < quiz.length; j++) {
+            $("ul").html("<li id='clickRegion' numberIndex= " + quiz[this.index].displayArray.indexOf(choice) + ">" + choice);
+
+    // $("#bandImages").text(quiz[this.index]);
+    // console.log("quiz[this.index] = " + quiz[this.index]);
+    // for (var choice of quiz[ask.index].displayArray) {
+    // }
         }
-        else {return;}
+    } else {
+        return;
     }
 };
 
@@ -122,16 +126,16 @@ $("#guesses").on("click", "#clickRegion", function() {
     } else {
         guesses.minusScore();
     }
+    ask.new()
 });
 
-$("#guesses").on("click", function() {
+// $("#guesses").on("click", function() {
     // var imageSwitch;
     // for (var i = 2; i < images.length; i++) {
         // $("#bandImages").html("<img src='" + images[i++] + "'/>");
 
     // }
-    ask.new()
-});
+// });
 
 // timer
 var clock = {
@@ -172,4 +176,6 @@ var clock = {
     }
 
 }; // end timer
+
+});
 
