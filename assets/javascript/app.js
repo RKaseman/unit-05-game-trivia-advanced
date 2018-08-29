@@ -82,19 +82,18 @@ $("#beginQuestions").on("click", function () {
 function ask() {
 
     if (quizCounter < quiz.length) {
+        quizCounter++;
+        $("#bandImages").html("<img src='" + images[quizCounter] + "'/>");
+        $("#guesses").html("<li class='clickRegion' numberIndex='1'>" + quiz[quizCounter].displayArray[0] + "</li><li class='clickRegion' numberIndex='2'>" + quiz[quizCounter].displayArray[0]);
 
-        for (i = 1; i < images.length; i++) {
-            $("#bandImages").html("<img src='" + images[0 + 1] + "'/>");
-        };
 
-        for (j = 1; j < quiz.length; j++) {
-            $("ul").html("<li id='clickRegion' numberIndex= " + quiz[this.index].displayArray.indexOf(choice) + ">" + choice);
+        // for (j = 1; j < quiz.length; j++) {
 
     // $("#bandImages").text(quiz[this.index]);
     // console.log("quiz[this.index] = " + quiz[this.index]);
     // for (var choice of quiz[ask.index].displayArray) {
     // }
-        }
+        // }
     } else {
         return;
     }
