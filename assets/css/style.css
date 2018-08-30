@@ -89,10 +89,10 @@ img {
     margin: 4px auto;
 }
 
-#guesses {
+/* #guesses { */
     /* typography */
-    font-size: 32px;
-}
+    /* font-size: 32px; */
+/* } */
 
 ul {
     /* no-bullet list */
@@ -100,6 +100,8 @@ ul {
 }
 
 li {
+    /* typography */
+    font-size: 32px;
     cursor: pointer;
     /* decoration */
     background: #8899dd;
