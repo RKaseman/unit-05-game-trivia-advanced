@@ -153,7 +153,7 @@ $(document).ready(function () {
 
     // timer
     var clock = {
-        time: 92,
+        time: 82,
         start: function() {
             if (!timerOn) {
                 intervalId = setInterval(clock.count, 1000);
