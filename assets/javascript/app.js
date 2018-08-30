@@ -44,8 +44,8 @@ $(document).ready(function () {
             theAnswer: 2
         },
         {
-            displayArray: ["Belly", "Lush", "Throwing Muses"],
-            theAnswer: 3
+            displayArray: ["Throwing Muses", "My Bloody Valentine", "Belly"],
+            theAnswer: 1
         },
         {
             displayArray: ["Pale Saints", "Medicine", "Mazzy Star"],
@@ -64,30 +64,38 @@ $(document).ready(function () {
             theAnswer: 2
         }];
 
-
+    // variables: count 1 sec, timer off, quiz at 1
     var intervalId;
     var timerOn = false;
     var quizCounter = 1;
-    console.log("quizCounter: " + quizCounter);
 
 
+    // starting image
     $("#bandImages").html("<img src='" + images[0] + "'/>");
 
+    // starting text
     $("ul").append("<li>" + quiz[0].displayArray[0] + "</li><li>" + quiz[0].displayArray[1] + "</li><li>" + quiz[0].displayArray[2] + "</li>");
 
+    // click the button to begin
     $("#beginQuestions").on("click", function () {
+        // hides the button
         $("button").hide();
+        // starts timer
         clock.start();
+        // starts song playing
         playAudio();
+        // switches to first answer list
         ask();
     });
 
 
+    // start song playing function
     function playAudio() {
         $("#myAudio")[0].play();
     }
 
 
+    // presents answer lists from the array for its .length
     function ask() {
 
         if (quizCounter < quiz.length) {
@@ -103,6 +111,7 @@ $(document).ready(function () {
     };
 
 
+    // right/wrong answers are tallied, quizCounter advances by 1
     var guesses = {
         correct: 0,
         wrong: 0,
@@ -119,8 +128,10 @@ $(document).ready(function () {
     };
 
 
+    // employed click regions for answer list
     $("#guesses").on("click", ".clickRegion", function() {
         if (quizCounter === 10) {
+            // ends operation and offers analysis for 4 outcomes
             $("#myAudio")[0].pause();
             clearInterval(intervalId);
             timerOn = false;
@@ -134,15 +145,13 @@ $(document).ready(function () {
             else if (guesses.correct > 4 && guesses.correct < 9) {
                 $("ul").html("<li>" + "Very good." + "</li><li>" + "Are you a closet " + "</li><li>" + "shoegazer?" + "</li>");
             }
-            else if (guesses.correct > 9 && guesses.correct < 11) {
+            else {
+                (guesses.correct > 8)
                 $("ul").html("<li>" + "Outstanding." + "</li><li>" + "You clearly know " + "</li><li>" + "your shoegazers." + "</li>");
             }
-            // $("#beginQuestions").on("click", function() {
-            //     $("button").hide();
-            // })
         }
+        // if the answer is correct or not add to right or wrong count
         var displayArrayPicked = Number($(this).attr("numberIndex"));
-        console.log("displayArrayPicked = " + displayArrayPicked);
         if (displayArrayPicked === quiz[quizCounter].theAnswer) {
             guesses.plusScore();
         } else {
