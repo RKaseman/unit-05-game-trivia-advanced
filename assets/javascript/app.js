@@ -134,7 +134,7 @@ $(document).ready(function () {
             else if (guesses.correct > 4 && guesses.correct < 9) {
                 $("ul").html("<li>" + "Very good." + "</li><li>" + "Are you a closet " + "</li><li>" + "shoegazer?" + "</li>");
             }
-            else if (guesses.wrong === 0) {
+            else if (guesses.correct > 9 && guesses.correct < 11) {
                 $("ul").html("<li>" + "Outstanding." + "</li><li>" + "You clearly know " + "</li><li>" + "your shoegazers." + "</li>");
             }
             // $("#beginQuestions").on("click", function() {
