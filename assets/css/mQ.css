@@ -18,7 +18,7 @@
 @media only screen and (max-width: 640px) {
 
     img {
-        max-width: 152px;
+        max-width: 128px;
     }
 
 }
@@ -56,7 +56,7 @@
     }
 
     img {
-        max-width: 112px;
+        max-width: 92px;
     }
 
     #guesses {
