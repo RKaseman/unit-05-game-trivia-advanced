@@ -21,6 +21,11 @@
         max-width: 128px;
     }
 
+    #guesses {
+        /* typography */
+        font-size: 16px;
+    }
+
 }
 
 @media only screen and (max-width: 320px) {
