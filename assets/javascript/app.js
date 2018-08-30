@@ -36,7 +36,7 @@ $(document).ready(function () {
             theAnswer: 3
         },
         {
-            displayArray: ["Throwing Muses", "Cocteau Twins", "Pale Saints"],
+            displayArray: ["My Bloody Valentine", "Cocteau Twins", "Pale Saints"],
             theAnswer: 2
         },
         {
@@ -44,23 +44,23 @@ $(document).ready(function () {
             theAnswer: 2
         },
         {
-            displayArray: ["Throwing Muses", "Medicine", "Belly"],
-            theAnswer: 1
-        },
-        {
-            displayArray: ["Throwing Muses", "Medicine", "Mazzy Star"],
+            displayArray: ["Belly", "Lush", "Throwing Muses"],
             theAnswer: 3
         },
         {
-            displayArray: ["Throwing Muses", "The Jesus and Mary Chain", "Mazzy Star"],
+            displayArray: ["Pale Saints", "Medicine", "Mazzy Star"],
+            theAnswer: 3
+        },
+        {
+            displayArray: ["Throwing Muses", "The Jesus and Mary Chain", "The Sundays"],
             theAnswer: 2
         },
         {
-            displayArray: ["Pale Saints", "The Jesus and Mary Chain", "Mazzy Star"],
+            displayArray: ["Pale Saints", "Cocteau Twins", "Mazzy Star"],
             theAnswer: 1
         },
         {
-            displayArray: ["Throwing Muses", "The Sundays", "Mazzy Star"],
+            displayArray: ["Throwing Muses", "The Sundays", "Lush"],
             theAnswer: 2
         }];
 
@@ -76,6 +76,7 @@ $(document).ready(function () {
     $("ul").append("<li>" + quiz[0].displayArray[0] + "</li><li>" + quiz[0].displayArray[1] + "</li><li>" + quiz[0].displayArray[2] + "</li>");
 
     $("#beginQuestions").on("click", function () {
+        $("button").hide();
         clock.start();
         playAudio();
         ask();
@@ -136,6 +137,9 @@ $(document).ready(function () {
             else if (guesses.wrong === 0) {
                 $("ul").html("<li>" + "Outstanding." + "</li><li>" + "You clearly know " + "</li><li>" + "your shoegazers." + "</li>");
             }
+            // $("#beginQuestions").on("click", function() {
+            //     $("button").hide();
+            // })
         }
         var displayArrayPicked = Number($(this).attr("numberIndex"));
         console.log("displayArrayPicked = " + displayArrayPicked);
