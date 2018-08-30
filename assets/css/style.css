@@ -1,66 +1,74 @@
 
-/* global */
 *, html, body {
     background: #000000;
-
+    /* typography */
     text-align: center;
 }
 
+header {
+    margin: 2px;
+}
+
 h1, h2, h3 {
+    /* typography */
     font-family: 'Special Elite', cursive, Cambria, Cochin, Georgia, Times, serif;
     color: #00008d;
-    text-shadow: 0.5px 0.5px 1px #99bbdd;
-
-    margin: 8px auto;
+    text-shadow: 0.5px 0.5px 1px #88aadd;
 }
 
 h1 {
-    font-size: 64px;
+    /* typography */
+    font-size: 56px;
     letter-spacing: 4px;
 }
 
 h2 {
-    font-size: 40px;
+    /* typography */
+    font-size: 32px;
 }
 
 h3 {
-    font-size: 32px;
+    /* typography */
+    font-size: 24px;
 }
 
 #wrapper {
+    /* typography */
     font-family: 'Boogaloo', cursive, 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Sans', Arial, sans-serif;
-    width: 512px;
-    margin: 16px auto;
+    /* box */
+    width: 45%;
+    margin: 0px auto;
 }
 
 #rightAnswer, #wrongAnswer {
+    /* typography */
     font-family: 'Boogaloo', cursive, sans-serif;
-    color: #218d88;
+    color: #8899dd;
     font-size: 32px;
     line-height: 48px;
-
-    border-top: 1px solid #218d88;
-
-    margin-right: 16px;
+    /* box */
+    border-top: 1px solid #8899dd;
 }
 
 #clockDisplay {
+    /* typography */
     font-family: monospace;
     color: #008000;
     font-size: 56px;
-
-    margin: 8px auto;
+    /* box */
+    margin: 4px auto;
 }
 
 button {
+    /* typography */
     font-family: 'Acme', sans-serif;
     cursor: pointer;
     font-size: 16px;
-
-    background: #8899dd;
     line-height: 20px;
+    /* box */
+    background: #8899dd;
     border: none;
-    padding: 16px;
+    padding: 8px;
 }
 
 #bandImages {
@@ -69,11 +77,12 @@ button {
 
 img {
     max-height: 256px;
-
-    margin: 16px auto;
+    /* box */
+    margin: 4px auto;
 }
 
 #guesses {
+    /* typography */
     font-size: 32px;
 }
 
@@ -82,7 +91,7 @@ ul {
 }
 
 li {
-    background: #218d88;
+    background: #8899dd;
     cursor: pointer;
 }
 

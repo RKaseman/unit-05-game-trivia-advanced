@@ -3,18 +3,19 @@ $(document).ready(function () {
 
     // image array
     var images = [ 
-        "../Trivia-Game/assets/images/question-mark-sm.png",
-        "../Trivia-Game/assets/images/acc53540f78.jpg",
-        "../Trivia-Game/assets/images/belly-top-10.jpg",
-        "../Trivia-Game/assets/images/cdc1b37b713a50e13a83d2ae6291ef16.jpg",
-        "../Trivia-Game/assets/images/Cocteau Twins_header_0.jpg",
-        "../Trivia-Game/assets/images/Medicine+1.jpg",
-        "../Trivia-Game/assets/images/MI0001332907.jpg",
-        "../Trivia-Game/assets/images/MI0004411418.jpg",
-        "../Trivia-Game/assets/images/MV5BZ-smaller.jpg",
-        "../Trivia-Game/assets/images/Pale-Saints-r01.jpg",
-        "../Trivia-Game/assets/images/the-sundays.jpeg",
-        "../Trivia-Game/assets/images/x.jpg"
+        "./assets/images/question-mark-sm.png",
+        "./assets/images/acc53540f78.jpg",
+        "./assets/images/belly-top-10.jpg",
+        "./assets/images/cdc1b37b713a50e13a83d2ae6291ef16.jpg",
+        "./assets/images/Cocteau Twins_header_0.jpg",
+        "./assets/images/Medicine+1.jpg",
+        "./assets/images/MI0001332907.jpg",
+        "./assets/images/MI0004411418.jpg",
+        "./assets/images/MV5BZ-smaller.jpg",
+        "./assets/images/Pale-Saints-r01.jpg",
+        "./assets/images/the-sundays.jpeg",
+        "./assets/images/x.jpg",
+        "./assets/images/Slowdive1-1024x682.jpg"
         ];
 
     // quiz Array
@@ -76,8 +77,14 @@ $(document).ready(function () {
 
     $("#beginQuestions").on("click", function () {
         clock.start();
+        playAudio();
         ask();
     });
+
+
+    function playAudio() {
+        $("#myAudio")[0].play();
+    }
 
 
     function ask() {
@@ -113,8 +120,10 @@ $(document).ready(function () {
 
     $("#guesses").on("click", ".clickRegion", function() {
         if (quizCounter === 10) {
+            $("#myAudio")[0].pause();
             clearInterval(intervalId);
             timerOn = false;
+            $("#bandImages").html("<img src='" + images[quizCounter + 2] + "'/>");
             if (guesses.correct === 0) {
                 $("ul").html("<li>" + "It's ok." + "</li><li>" + "They've always been" + "</li><li>" + "underappreciated." + "</li>");
             }
