@@ -99,7 +99,6 @@ $(document).ready(function () {
     function ask() {
 
         if (quizCounter < quiz.length) {
-            console.log("quizCounter: " + quizCounter);
             $("#bandImages").html("<img src='" + images[quizCounter] + "'/>");
             $("ul").html("<li class='clickRegion' numberIndex='1'>" 
             + quiz[quizCounter].displayArray[0] + "</li><li class='clickRegion' numberIndex='2'>" 
