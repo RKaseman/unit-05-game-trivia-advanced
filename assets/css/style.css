@@ -7,19 +7,20 @@
 }
 
 h1, h2, h3 {
-    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-family: 'Special Elite', cursive, Cambria, Cochin, Georgia, Times, serif;
     color: #00008d;
-    font-weight: bold;
-    text-shadow: 0.5px 0.5px 4px #99bbdd;
+    text-shadow: 0.5px 0.5px 1px #99bbdd;
+
+    margin: 8px auto;
 }
 
 h1 {
-    font-size: 112px;
-    font-style: italic;
+    font-size: 64px;
+    letter-spacing: 4px;
 }
 
 h2 {
-    font-size: 56px;
+    font-size: 40px;
 }
 
 h3 {
@@ -27,35 +28,47 @@ h3 {
 }
 
 #wrapper {
-    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-family: 'Boogaloo', cursive, 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Sans', Arial, sans-serif;
     width: 512px;
     margin: 16px auto;
 }
 
-#clockDisplay, #rightAnswer, #wrongAnswer {
+#rightAnswer, #wrongAnswer {
+    font-family: 'Boogaloo', cursive, sans-serif;
+    color: #218d88;
+    font-size: 32px;
+    line-height: 48px;
+
+    border-top: 1px solid #218d88;
+
+    margin-right: 16px;
+}
+
+#clockDisplay {
     font-family: monospace;
     color: #008000;
-    font-size: 64px;
-    /* width: 512px; */
-    /* margin: 16px auto; */
+    font-size: 56px;
+
+    margin: 8px auto;
 }
 
 button {
-    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-family: 'Acme', sans-serif;
     cursor: pointer;
+    font-size: 16px;
+
     background: #8899dd;
-    line-height: 24px;
+    line-height: 20px;
     border: none;
-    padding: 32px;
-    margin: 16px;
+    padding: 16px;
 }
 
 #bandImages {
-    background: #ff0000;
+    background: #222222;
 }
 
 img {
-    max-height: 64px;
+    max-height: 256px;
 
     margin: 16px auto;
 }
@@ -72,8 +85,4 @@ li {
     background: #218d88;
     cursor: pointer;
 }
-
-/* input {
-    color: #000000;
-} */
 
