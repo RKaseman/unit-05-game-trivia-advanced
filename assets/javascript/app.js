@@ -2,7 +2,7 @@
 $(document).ready(function () {
 
     // image array
-    var images = [ 
+    var images = [
         "./assets/images/question-mark-sm.png",
         "./assets/images/acc53540f78.jpg",
         "./assets/images/belly-top-10.jpg",
@@ -16,7 +16,7 @@ $(document).ready(function () {
         "./assets/images/the-sundays.jpeg",
         "./assets/images/x.jpg",
         "./assets/images/Slowdive1-1024x682.jpg"
-        ];
+    ];
 
     // quiz Array
     var quiz = [
@@ -69,7 +69,6 @@ $(document).ready(function () {
     var timerOn = false;
     var quizCounter = 1;
 
-
     // starting image
     $("#bandImages").html("<img src='" + images[0] + "'/>");
 
@@ -88,47 +87,45 @@ $(document).ready(function () {
         ask();
     });
 
-
-    // start song playing function
+    // start song playing
     function playAudio() {
         $("#myAudio")[0].play();
     }
 
-
     // presents answer lists from the array for its .length
     function ask() {
-
         if (quizCounter < quiz.length) {
             $("#bandImages").html("<img src='" + images[quizCounter] + "'/>");
-            $("ul").html("<li class='clickRegion' numberIndex='1'>" 
-            + quiz[quizCounter].displayArray[0] + "</li><li class='clickRegion' numberIndex='2'>" 
-            + quiz[quizCounter].displayArray[1] + "</li><li class='clickRegion' numberIndex='3'>" 
-            + quiz[quizCounter].displayArray[2] + "</li>");
+            $("ul").html("<li class='clickRegion' numberIndex='1'>"
+                + quiz[quizCounter].displayArray[0]
+                + "</li><li class='clickRegion' numberIndex='2'>"
+                + quiz[quizCounter].displayArray[1]
+                + "</li><li class='clickRegion' numberIndex='3'>"
+                + quiz[quizCounter].displayArray[2]
+                + "</li>");
         } else {
             return;
         }
     };
 
-
     // right/wrong answers are tallied, quizCounter advances by 1
     var guesses = {
         correct: 0,
         wrong: 0,
-        plusScore: function() {
+        plusScore: function () {
             guesses.correct++;
             $("#rightAnswer").text("Right: " + guesses.correct);
             quizCounter++;
         },
-        minusScore: function() {
+        minusScore: function () {
             guesses.wrong++;
             $("#wrongAnswer").text("Wrong: " + guesses.wrong);
             quizCounter++;
         },
     };
 
-
     // employed click regions for answer list
-    $("#guesses").on("click", ".clickRegion", function() {
+    $("#guesses").on("click", ".clickRegion", function () {
         if (quizCounter === 10) {
             // ends operation and offers analysis for 4 outcomes
             $("#myAudio")[0].pause();
@@ -162,13 +159,13 @@ $(document).ready(function () {
     // timer
     var clock = {
         time: 82,
-        start: function() {
+        start: function () {
             if (!timerOn) {
                 intervalId = setInterval(clock.count, 1000);
                 timerOn = true;
             }
         },
-        count: function() {
+        count: function () {
             clock.time--;
             var converted = clock.timeConverter(clock.time);
             $("#clockDisplay").text(converted);
@@ -180,7 +177,7 @@ $(document).ready(function () {
                 $("ul").html("<li>" + "It's ok." + "</li><li>" + "They've always been" + "</li><li>" + "underappreciated." + "</li>");
             }
         },
-        timeConverter: function(t) {
+        timeConverter: function (t) {
             var minutes = Math.floor(t / 60);
             var seconds = t - (minutes * 60);
             if (seconds < 10) {
